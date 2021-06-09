@@ -9,10 +9,7 @@ import numpy as np
 app = Flask(__name__,template_folder='template')
 Load_model = load_model("Monthly_Model.h5")
 Load_model1 = load_model("Monthly_Model1.h5")
-const port=process.env.port || '8080'
 
-app=express();
-app.set("port",PORT);
 
 Scaler = pickle.load(open('MinmaxScaler.pkl', 'rb'))
 Scaler1 = pickle.load(open('MinmaxScaler1.pkl', 'rb'))
@@ -45,6 +42,10 @@ def predictt():
     Result1 = Scaler1.inverse_transform(prediction1)[0][0]
     return render_template("result1.html", result1=Result1)
 
+
+const PORT=process.env.PORT || '8080'
+app=express();
+app.set("port",PORT);
 
 if __name__ == "__main__":
     app.run(debug=True)
