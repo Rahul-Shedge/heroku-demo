@@ -1,0 +1,42 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Price Prediction MSFT</title>
+</head>
+<style>
+    body  {
+        background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url({{url_for('static',filename='images/img1.png')}});
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+        h1{
+            background-color: 391671;
+            color: F988DA;
+            font-size: xx-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        h3{
+        background-color: 391672;
+            color: F898DA;
+            font-size: xx-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+    </style>
+<body style="background-color:lavender;" >
+    <center>
+        <form action="/method1" method="POST" target="_blank">
+            <table><tr><td><h1>Stock Price Prediction MSFT</h1></td></tr>
+
+                <tr><td><b><h3>Close Price</h3></b></td><td>
+                <input type="number" step="0.01" name="Close Price" placeholder="Close Price" style="background-color:Thistle"; required>
+                </td>
+       <tr><td></td><td>
+                    <button type="submit" style="background-color:rosybrown";><h2>Submit</h2></button></td></tr></table>
+
+
+        </form>
+    </center>
+</body>
+</html>
