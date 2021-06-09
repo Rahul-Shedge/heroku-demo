@@ -36,16 +36,14 @@ def index1():
 
 @app.route('/method1', methods=['POST'])
 def predictt():
-    int_features=[int(x) for x in request.form.values()]
-    scaled1 = Scaler1.transform(np.array(int_features).reshape(-1, 1))
+    Value1=request.form["Close Price"]
+    scaled1 = Scaler1.transform(np.array(Value1).reshape(-1, 1))
     prediction1 = Load_model1.predict(scaled1.reshape(scaled1.shape[0], 1, scaled1.shape[1]))
     Result1 = Scaler1.inverse_transform(prediction1)[0][0]
     return render_template("result1.html", result1=Result1)
 
 
-const PORT=process.env.PORT || '8080'
-app=express();
-app.set("port",PORT);
+
 
 if __name__ == "__main__":
     app.run(debug=True)
