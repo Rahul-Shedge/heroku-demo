@@ -8,18 +8,17 @@ import numpy as np
 
 app = Flask(__name__,template_folder='template')
 Load_model = load_model("Monthly_Model.h5")
-Load_model1 = load_model("Monthly_Model1.h5")
-
+Load_model1 = load_model("Minute_model.h5")
 
 Scaler = pickle.load(open('MinmaxScaler.pkl', 'rb'))
-Scaler1 = pickle.load(open('MinmaxScaler1.pkl', 'rb'))
+Scaler1 = pickle.load(open('MinmaxScaler2.pkl', 'rb'))
 
 @app.route("/", methods=["GET", "POST"])
 def homey():
-    return render_template('entry.html')
+    return render_template('entry3.html')
 @app.route("/index", methods=["GET","POST"])
 def index():
-    return render_template('index.html')
+    return render_template('nifty.html')
 
 @app.route('/method', methods=['POST'])
 def predict():
@@ -27,22 +26,21 @@ def predict():
     scaled = Scaler.transform(np.array(Value).reshape(-1, 1))
     prediction = Load_model.predict(scaled.reshape(scaled.shape[0], 1, scaled.shape[1]))
     Result = Scaler.inverse_transform(prediction)[0][0]
-    return render_template("result.html", result=Result)
+
+    return render_template("nifty.html", result=Result)
 
 @app.route("/index1", methods=["GET","POST"])
 def index1():
-    return render_template('index1.html')
+    return render_template('msft.html')
 
 
-@app.route('/method1', methods=['POST'])
+@app.route("/method1",methods=['POST'])
 def predictt():
-    Value1=request.form["Close Price"]
-    scaled1 = Scaler1.transform(np.array(Value1).reshape(-1, 1))
+    Values1 = request.form["Close Price"]
+    scaled1 = Scaler1.transform(np.array(Values1).reshape(-1, 1))
     prediction1 = Load_model1.predict(scaled1.reshape(scaled1.shape[0], 1, scaled1.shape[1]))
     Result1 = Scaler1.inverse_transform(prediction1)[0][0]
-    return render_template("result1.html", result1=Result1)
-
-
+    return render_template("msft.html", prediction_text='the predicted value is', result1=Result1)
 
 
 if __name__ == "__main__":
