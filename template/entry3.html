@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initial Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand">STOCKMARKET PREDICTION</a>
+    </div>
+    <ul class="nav navbar-nav">
+         <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">DOWNLOADS
+          <span class="glyphicon glyphicon-download"></span> </a>
+          <ul class="dropdown-menu">
+          <li><a href="static/data/data1.csv">Minute Dataset</a></li>
+          <li><a href="static/data/data2.csv">MSFT Dataset</a></li>
+
+        </ul>
+    </li></ul></div>
+</nav>
+<body>
+    <h1 style="font-family: 'Garamond',serif;
+	color: #D39952;
+	font-size: 40px;
+	text-shadow: 0 0 10px;">Stock Price Prediction using Machine Learning</h1>
+    <div class="initial">
+
+
+        <h3 style="font-family:'Times New Roman',serif;
+	font-size:15px;
+	margin-top:20px; color:white;">You can predict next day closing price of MSFT stock and next minute closing price of NIFTY stock</h3>
+        <p style="font-family: 'Times New Roman',serif;
+	margin-top: 25px;
+	color: #FFFFCC;">What you want to predict??</p>
+        <select name="dataset" id="dataset" onchange="location=this.value;" class="select">
+            <option value="" selected disabled hidden>Select here</option>
+          <option value="/index1">MSFT stock price</option>
+          <option value="index">NIFTY stock price</option>
+        </select>
+    </div>
+
+</body>
+</html>
