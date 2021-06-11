@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="login">
-		<form action="/method1" method="POST" target="_blank">
+		<form action="/method" method="POST" target="_blank">
 			<p>Enter close price: </p>
 			<input type="number" name="Close Price" placeholder="Close Price">
 			<button type="submit" class="btn">Predict</button>
@@ -23,8 +23,9 @@
 
 		<br>
 		<br>
-		{{result}}
-
+		<div class="hi">
+		{{prediction_text}}
+		</div>
 
 	</div>
 
