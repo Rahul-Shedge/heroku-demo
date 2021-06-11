@@ -27,7 +27,7 @@ def predict():
     prediction = Load_model.predict(scaled.reshape(scaled.shape[0], 1, scaled.shape[1]))
     Result = Scaler.inverse_transform(prediction)[0][0]
 
-    return render_template("nifty.html", result=Result)
+    return render_template("nifty.html",prediction_text='The Predicted close price of MSFT is {}'.format(Result))
 
 @app.route("/index1", methods=["GET","POST"])
 def index1():
@@ -40,7 +40,7 @@ def predictt():
     scaled1 = Scaler1.transform(np.array(Values1).reshape(-1, 1))
     prediction1 = Load_model1.predict(scaled1.reshape(scaled1.shape[0], 1, scaled1.shape[1]))
     Result1 = Scaler1.inverse_transform(prediction1)[0][0]
-    return render_template("msft.html", prediction_text='the predicted value is', result1=Result1)
+    return render_template("msft.html",prediction_text='The Predicted close price of MSFT is {}'.format(Result1))
 
 
 if __name__ == "__main__":
